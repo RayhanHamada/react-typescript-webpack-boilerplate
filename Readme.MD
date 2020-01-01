@@ -22,7 +22,7 @@ git clone https://github.com/RayhanHamada/react-typescript-webpack-boilerplate.g
 git clone https://github.com/RayhanHamada/react-typescript-webpack-boilerplate.git --branch with-redux-my-way --single-branch <your desired folder>
 ```
 
-## running
+## Running App
 
 1. Start A Development Server and enable Hot Reload while developing
 
