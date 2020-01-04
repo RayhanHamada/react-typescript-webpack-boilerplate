@@ -27,6 +27,17 @@ export default {
       {
         test: /\.s(a|c)ss$/,
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      },
+      {
+        test: /\.(ttf|woff|jpe?g|png|svg|gif)$/,
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]"
+        }
       }
     ]
   },
