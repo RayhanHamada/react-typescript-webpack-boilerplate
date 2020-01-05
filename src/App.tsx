@@ -20,7 +20,7 @@ const App = (props: any) => {
     <div className="app-wrapper">
       <BrowserRouter>
         <nav id="the-nav">
-          <Link to="/">ToHome</Link>
+          <Link to="/" >ToHome</Link>
           <br/>
           <Link to="/profile">Profile</Link>
         </nav>
