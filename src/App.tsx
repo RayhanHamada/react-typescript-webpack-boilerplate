@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Switch, Link, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   increment,
@@ -11,19 +12,28 @@ import {
   asyncIncrement,
   asyncDecrement
 } from "./state_manager/actions/asyncAction";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 const App = (props: any) => {
   return (
     <div className="app-wrapper">
-      <p>It's Alllllllll Typescript !!!</p>
-      <p>Current Number : {props.count}</p>
-      <p>{props.name}</p>
-      <button onClick={props.increment}>Increment</button>
-      <button onClick={props.decrement}>Decrement</button>
-      <button onClick={props.asyncIncrement}>Async Increment</button>
-      <button onClick={props.asyncDecrement}>Async Decrement</button>
+      <BrowserRouter>
+        <nav id="the-nav">
+          <Link to="/">ToHome</Link>
+          <br/>
+          <Link to="/profile">Profile</Link>
+        </nav>
 
-      <button onClick={props.capitalizeAll}>Capitalize</button>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
