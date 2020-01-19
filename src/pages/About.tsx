@@ -25,7 +25,6 @@ const About = (props: AboutProps) => {
 	return (
 		<div id="wrapper-about">
 			<p>{props.count}</p>
-
 			<button onClick={() => history.goBack()}>GoBack</button>
 			<button onClick={props.increment}>Increment</button>
 			<button onClick={props.decrement}>Decrement</button>
