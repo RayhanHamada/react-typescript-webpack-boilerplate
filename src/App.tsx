@@ -10,21 +10,21 @@ const mapDispatchToProps = (dispatch: Dispatch<MyTypes.RootAction>) =>
 			increment: counterActions.increment,
 			decrement: counterActions.decrement,
 			incrementBy: counterActions.incrementBy,
-			decrementBy: counterActions.decrementBy
+			decrementBy: counterActions.decrementBy,
 		},
 		dispatch
 	);
 
 const mapStateToProps = ({ counterReducer }: MyTypes.RootState) => {
 	return {
-		count: counterReducer.count
+		count: counterReducer.count,
 	};
 };
 
-const App = (
-	props: ReturnType<typeof mapDispatchToProps> &
-		ReturnType<typeof mapStateToProps>
-) => {
+type AppPropsType = ReturnType<typeof mapDispatchToProps> &
+	ReturnType<typeof mapStateToProps>;
+
+const App = (props: AppPropsType) => {
 	return (
 		<div>
 			<p>It &rsquo; s Alllllllll Typescript !!!</p>
