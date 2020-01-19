@@ -1,14 +1,21 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+import createRootReducer from './reducers';
+import { createBrowserHistory } from 'history';
+import { MyTypes } from '../types';
+import { routerMiddleware } from 'connected-react-router';
 
-const combinedMiddleWare = [thunk];
+export const history = createBrowserHistory();
 
-const store = createStore(
-	rootReducer,
-	{},
-	composeWithDevTools(applyMiddleware(...combinedMiddleWare))
-);
+const combinedMiddleWare = [thunk, routerMiddleware(history)];
 
-export default store;
+const configureStore = (preloadedState: MyTypes.RootState) => {
+	return createStore(
+		createRootReducer(history),
+		preloadedState,
+		composeWithDevTools(applyMiddleware(...combinedMiddleWare))
+	);
+};
+
+export default configureStore;

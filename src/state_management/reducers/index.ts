@@ -1,6 +1,12 @@
 import counterReducer from './counterReducer';
 import { combineReducers } from 'redux';
+import { History } from 'history';
+import { connectRouter } from 'connected-react-router';
 
-export default combineReducers({
-	counterReducer,
-});
+const createRootReducer = (history: History) =>
+	combineReducers({
+		router: connectRouter(history),
+		counterReducer,
+	});
+
+export default createRootReducer;
