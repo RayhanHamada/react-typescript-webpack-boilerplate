@@ -10,7 +10,11 @@ export const history = createBrowserHistory();
 
 const combinedMiddleWare = [thunk, routerMiddleware(history)];
 
-const configureStore = (preloadedState: MyTypes.RootState) => {
+const initialRootState: Partial<MyTypes.RootState> = {};
+
+const configureStore = (
+	preloadedState: Partial<MyTypes.RootState> = initialRootState
+) => {
 	return createStore(
 		createRootReducer(history),
 		preloadedState,
