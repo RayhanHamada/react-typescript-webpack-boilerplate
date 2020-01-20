@@ -14,7 +14,7 @@ const store = configureStore(/*override this parameter if you desire different i
 ReactDOM.render(
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
-			<Route exact path="/" render={() => <Home />} />  
+			<Route exact path="/" render={() => <Home />} />
 			<Route path="/about" render={() => <About />} />
 		</ConnectedRouter>
 	</Provider>,

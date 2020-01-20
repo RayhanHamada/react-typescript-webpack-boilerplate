@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import createRootReducer from './reducers';
@@ -8,18 +8,15 @@ import { routerMiddleware } from 'connected-react-router';
 
 export const history = createBrowserHistory();
 
-const combinedMiddleWare = [thunk, routerMiddleware(history)];
+const appliedMiddleware = applyMiddleware(
+	...[thunk, routerMiddleware(history)]
+);
+const composeWith =
+	process.env.NODE_ENV === 'development'
+		? composeWithDevTools(appliedMiddleware)
+		: compose(appliedMiddleware);
 
-const initialRootState: Partial<MyTypes.RootState> = {};
-
-const configureStore = (
-	preloadedState: Partial<MyTypes.RootState> = initialRootState
-) => {
-	return createStore(
-		createRootReducer(history),
-		preloadedState,
-		composeWithDevTools(applyMiddleware(...combinedMiddleWare))
-	);
-};
+const configureStore = (preloadedState: Partial<MyTypes.RootState> = {}) =>
+	createStore(createRootReducer(history), preloadedState, composeWith);
 
 export default configureStore;
