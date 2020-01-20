@@ -5,7 +5,7 @@ declare namespace MyTypes {
 		typeof import('./state_management/actions').default
 	>;
 	export type RootState = StateType<
-		ReturnType<typeof import('./state_management/reducers').default>
+		typeof import('./state_management/reducers').default
 	>;
 	export type Store = StateType<
 		typeof import('./state_management/store').default
@@ -15,7 +15,7 @@ declare namespace MyTypes {
 declare module 'typesafe-actions' {
 	export interface Types {
 		RootAction: ActionType<typeof import('./state_management/actions').default>;
-		RootState: StateType<ReturnType<typeof import('./state_management/reducers').default>>;
+		RootState: StateType<typeof import('./state_management/reducers').default>;
 		Store: StateType<typeof import('./state_management/store').default>;
 	}
 }
