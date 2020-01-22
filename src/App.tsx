@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
-import * as counterActions from './state_management/actions/counterActions';
+import * as counterActions from './features/counter/counterActions';
 import { MyTypes } from './types';
 import { connect } from 'react-redux';
 

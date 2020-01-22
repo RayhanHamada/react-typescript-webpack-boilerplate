@@ -2,20 +2,18 @@ import { StateType, ActionType } from 'typesafe-actions';
 
 declare namespace MyTypes {
 	export type RootAction = ActionType<
-		typeof import('./state_management/actions').default
+		typeof import('./store/rootAction').default
 	>;
 	export type RootState = StateType<
-		typeof import('./state_management/reducers').default
+		typeof import('./store/rootReducer').default
 	>;
-	export type Store = StateType<
-		typeof import('./state_management/store').default
-	>;
+	export type Store = StateType<typeof import('./store').default>;
 }
 
 declare module 'typesafe-actions' {
 	export interface Types {
-		RootAction: ActionType<typeof import('./state_management/actions').default>;
-		RootState: StateType<typeof import('./state_management/reducers').default>;
-		Store: StateType<typeof import('./state_management/store').default>;
+		RootAction: ActionType<typeof import('./store/rootAction').default>;
+		RootState: StateType<typeof import('./store/rootReducer').default>;
+		Store: StateType<typeof import('./store').default>;
 	}
 }
