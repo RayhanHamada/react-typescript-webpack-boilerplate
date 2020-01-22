@@ -1,9 +1,9 @@
 import React from 'react';
 import { MyTypes } from './../types';
-import * as counterReducer from './../state_management/actions/counterActions';
+import * as counterActions from '../features/counter/counterActions';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { history } from '../state_management/store';
+import { history } from '../store';
 
 const mapStateToProps = ({ counterReducer }: MyTypes.RootState) => ({
 	count: counterReducer.count,
@@ -12,8 +12,8 @@ const mapStateToProps = ({ counterReducer }: MyTypes.RootState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<MyTypes.RootAction>) =>
 	bindActionCreators(
 		{
-			increment: counterReducer.increment,
-			decrement: counterReducer.decrement,
+			increment: counterActions.increment,
+			decrement: counterActions.decrement,
 		},
 		dispatch
 	);

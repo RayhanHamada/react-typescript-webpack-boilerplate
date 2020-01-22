@@ -1,4 +1,4 @@
-import counterReducer from './counterReducer';
+import counterReducer from '../features/counter/counterReducer';
 import { combineReducers } from 'redux';
 import { History } from 'history';
 import { connectRouter } from 'connected-react-router';

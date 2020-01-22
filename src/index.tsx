@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import configureStore, { history } from './state_management/store';
+import configureStore, { history } from './store';
 import './style.scss';
 import { ConnectedRouter } from 'connected-react-router';
 import Home from './pages/Home';
