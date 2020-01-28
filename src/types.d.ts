@@ -7,7 +7,7 @@ declare namespace MyTypes {
 	export type RootState = StateType<
 		ReturnType<typeof import('./store/rootReducer').default>
 	>;
-	export type Store = StateType<typeof import('./store').default>;
+	export type Store = StateType<ReturnType<typeof import('./store').default>>;
 }
 
 declare module 'typesafe-actions' {
@@ -16,6 +16,6 @@ declare module 'typesafe-actions' {
 		RootState: StateType<
 			ReturnType<typeof import('./store/rootReducer').default>
 		>;
-		Store: StateType<typeof import('./store').default>;
+		Store: StateType<ReturnType<typeof import('./store').default>>;
 	}
 }
