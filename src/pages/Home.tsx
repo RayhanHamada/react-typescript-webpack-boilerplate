@@ -1,6 +1,6 @@
 import React from 'react';
 import { MyTypes } from './../types';
-import { Dispatch, bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import * as counterActions from '../features/counter/counterActions';
 import { connect } from 'react-redux';
 import { history } from '../store';
@@ -11,7 +11,7 @@ const mapStateToProps = ({ counterReducer }: MyTypes.RootState) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<MyTypes.RootAction>) =>
+const mapDispatchToProps = (dispatch: MyTypes.AppDispatch) =>
 	bindActionCreators(
 		{
 			increment: counterActions.increment,
