@@ -5,28 +5,28 @@ const initialState = {
 };
 
 const counterReducer = createReducer(initialState)
-	.handleType('INCREMENT', state => {
+	.handleType('counter/INCREMENT', state => {
 		return {
 			...state,
 			count: state.count + 1,
 		};
 	})
 
-	.handleType('DECREMENT', state => {
+	.handleType('counter/DECREMENT', state => {
 		return {
 			...state,
 			count: state.count - 1,
 		};
 	})
 
-	.handleType('INCREMENT_BY', (state, action) => {
+	.handleType('counter/INCREMENT_BY', (state, action) => {
 		return {
 			...state,
 			count: state.count + action.payload.by,
 		};
 	})
 
-	.handleType('DECREMENT_BY', (state, action) => {
+	.handleType('counter/DECREMENT_BY', (state, action) => {
 		return {
 			...state,
 			count: state.count - action.payload.by,
