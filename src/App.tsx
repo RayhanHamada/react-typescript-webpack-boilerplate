@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
 import * as counterActions from './features/counter/counterActions';
-import { MyTypes } from './types';
+import { MyTypes } from './store/types';
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({ counterReducer }: MyTypes.RootState) => ({
