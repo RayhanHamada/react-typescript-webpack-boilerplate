@@ -10,7 +10,7 @@ declare namespace MyTypes {
 	>;
 	export type Store = StateType<ReturnType<typeof import('./store').default>>;
 
-	export type MyDispatch = Dispatch<RootAction>;
+	export type AppDispatch = Dispatch<RootAction>;
 }
 
 declare module 'typesafe-actions' {
