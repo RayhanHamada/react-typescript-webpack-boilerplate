@@ -1,5 +1,5 @@
 import React from 'react';
-import { MyTypes } from './../types';
+import { MyTypes } from '../store/types';
 import { bindActionCreators } from 'redux';
 import * as counterActions from '../features/counter/counterActions';
 import { connect } from 'react-redux';
