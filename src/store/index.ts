@@ -16,7 +16,7 @@ const composeWith =
 		? composeWithDevTools(appliedMiddleware)
 		: compose(appliedMiddleware);
 
-const configureStore = (preloadedState: Partial<MyTypes.RootState> = {}) =>
+export const configureStore = (preloadedState: Partial<MyTypes.RootState> = {}): MyTypes.Store =>
 	createStore(createRootReducer(history), preloadedState, composeWith);
 
 // override the parameter if you desire a different initial state for your store
