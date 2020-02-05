@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch: MyTypes.AppDispatch) =>
 		{
 			increment: counterActions.increment,
 			decrement: counterActions.decrement,
+			asyncIncrement: counterActions.asyncIncrement,
 		},
 		dispatch
 	);
@@ -31,6 +32,7 @@ const Home = (props: HomeProps) => {
 			<button onClick={() => history.push('/about')}>To About Page</button>
 			<button onClick={props.increment}>Increment</button>
 			<button onClick={props.decrement}>Decrement</button>
+			<button onClick={props.asyncIncrement}>Async Increment</button>
 		</div>
 	);
 };
