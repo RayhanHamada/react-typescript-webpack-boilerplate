@@ -3,10 +3,10 @@ import { Dispatch } from 'redux';
 
 declare namespace MyTypes {
 	export type RootAction = ActionType<
-		typeof import('./rootAction').default
+		typeof import('./root-action').default
 	>;
 	export type RootState = StateType<
-		typeof import('./rootReducer').default
+		typeof import('./root-reducer').default
 	>;
 	export type Store = StateType<typeof import('.').default>;
 
@@ -15,8 +15,8 @@ declare namespace MyTypes {
 
 declare module 'typesafe-actions' {
 	export interface Types {
-		RootAction: ActionType<typeof import('./rootAction').default>;
-		RootState: StateType<typeof import('./rootReducer').default>;
+		RootAction: ActionType<typeof import('./root-action').default>;
+		RootState: StateType<typeof import('./root-reducer').default>;
 		Store: StateType<typeof import('.').default>;
 	}
 }
