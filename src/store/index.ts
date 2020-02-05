@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import createRootReducer from './rootReducer';
+import createRootReducer from './root-reducer';
 import { createBrowserHistory } from 'history';
 import { MyTypes } from './types';
 import { routerMiddleware } from 'connected-react-router';
