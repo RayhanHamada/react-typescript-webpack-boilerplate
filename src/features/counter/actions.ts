@@ -20,3 +20,5 @@ export const decrementBy = createAction(
 		};
 	}
 )();
+
+export const asyncIncrement = createAction('counter/ASYNC_INCREMENT')();

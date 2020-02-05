@@ -1,10 +1,18 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-import rootReducer from './root-reducer';
-import { MyTypes } from './types';
+import { createEpicMiddleware } from 'redux-observable';
 
-const appliedMiddleWare = applyMiddleware(...[thunk]);
+import { MyTypes } from './types';
+import rootReducer from './root-reducer';
+import rootEpic from './root-epic';
+
+export const epicMiddleware = createEpicMiddleware<
+	MyTypes.RootAction,
+	MyTypes.RootAction,
+	MyTypes.RootState
+>();
+
+const appliedMiddleWare = applyMiddleware(...[epicMiddleware]);
 
 const composeWith =
 	process.env.NODE_ENV === 'development'
@@ -14,5 +22,7 @@ const composeWith =
 const initialRootState: Partial<MyTypes.RootState> = {};
 
 const store = createStore(rootReducer, initialRootState, composeWith);
+
+epicMiddleware.run(rootEpic);
 
 export default store;

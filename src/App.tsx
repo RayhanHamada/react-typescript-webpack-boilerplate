@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch: Dispatch<MyTypes.RootAction>) =>
 		{
 			increment: counterActions.increment,
 			decrement: counterActions.decrement,
+			asyncIncrement: counterActions.asyncIncrement,
 		},
 		dispatch
 	);
@@ -29,6 +30,7 @@ const App = (props: AppProps) => {
 			<br />
 			<button onClick={props.increment}>Increment</button>
 			<button onClick={props.decrement}>Decrement</button>
+			<button onClick={props.asyncIncrement}>Async Increment</button>
 		</div>
 	);
 };
