@@ -2,7 +2,7 @@ import store from './../../src/store';
 import {
 	increment,
 	decrement,
-} from '../../src/features/counter/counterActions';
+} from '../../src/features/counter/actions';
 
 describe('Counter Reducer', () => {
 	it('should increment by 1', () => {

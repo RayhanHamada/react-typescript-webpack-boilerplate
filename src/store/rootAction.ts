@@ -1,4 +1,4 @@
-import * as counterActions from '../features/counter/counterActions';
+import * as counterActions from '../features/counter/actions';
 
 export default {
 	counterActions,
