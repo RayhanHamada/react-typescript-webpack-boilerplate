@@ -2,12 +2,17 @@ import React from 'react';
 import { MyTypes } from '../store/types';
 import { bindActionCreators } from 'redux';
 import * as counterActions from '../features/counter/actions';
+import * as userAction from '../features/user/actions';
 import { connect } from 'react-redux';
 import { history } from '../store';
 
-const mapStateToProps = ({ counterReducer }: MyTypes.RootState) => {
+const mapStateToProps = ({
+	counterReducer,
+	userReducer,
+}: MyTypes.RootState) => {
 	return {
 		count: counterReducer.count,
+		users: userReducer,
 	};
 };
 
@@ -17,6 +22,8 @@ const mapDispatchToProps = (dispatch: MyTypes.AppDispatch) =>
 			increment: counterActions.increment,
 			decrement: counterActions.decrement,
 			asyncIncrement: counterActions.asyncIncrement,
+			fetchUsers: userAction.fetchUsers,
+			resetUsers: userAction.resetUsers,
 		},
 		dispatch
 	);
@@ -33,6 +40,27 @@ const Home = (props: HomeProps) => {
 			<button onClick={props.increment}>Increment</button>
 			<button onClick={props.decrement}>Decrement</button>
 			<button onClick={props.asyncIncrement}>Async Increment</button>
+			<br />
+			<button
+				onClick={ev => {
+					ev.persist();
+					props.fetchUsers();
+				}}
+			>
+				Fetch User
+			</button>
+			<button
+				onClick={ev => {
+					ev.persist();
+					props.resetUsers();
+				}}
+			>
+				Reset User
+			</button>
+			<br />
+			{props.users.map(user => (
+				<p key={user.id}>{user.name}</p>
+			))}
 		</div>
 	);
 };

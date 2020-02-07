@@ -1,5 +1,6 @@
 import { StateType, ActionType } from 'typesafe-actions';
 import { Dispatch } from 'redux';
+import { Epic } from 'redux-observable';
 
 declare namespace MyTypes {
 	export type Store = StateType<typeof import('.').default>;
@@ -7,8 +8,8 @@ declare namespace MyTypes {
 	export type RootState = StateType<
 		ReturnType<typeof import('./root-reducer').default>
 	>;
-
 	export type AppDispatch = Dispatch<RootAction>;
+	export type AppEpic = Epic<RootAction, RootAction, RootState>;
 }
 
 declare module 'typesafe-actions' {
