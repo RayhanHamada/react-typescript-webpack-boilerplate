@@ -2,11 +2,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createRootReducer from './root-reducer';
 import { createBrowserHistory } from 'history';
-import { MyTypes } from './types';
 import { routerMiddleware } from 'connected-react-router';
 import { createEpicMiddleware } from 'redux-observable';
 
 import rootEpic from './root-epic';
+import { MyTypes } from './app-types';
 
 export const history = createBrowserHistory();
 

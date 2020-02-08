@@ -1,10 +1,10 @@
 import React from 'react';
-import { MyTypes } from '../store/types';
 import { bindActionCreators } from 'redux';
 import * as counterActions from '../features/counter/actions';
 import * as userAction from '../features/user/actions';
 import { connect } from 'react-redux';
 import { history } from '../store';
+import { MyTypes } from 'src/store/app-types';
 
 const mapStateToProps = ({
 	counterReducer,
