@@ -1,14 +1,10 @@
-import { Epic, ofType } from 'redux-observable';
+import { ofType } from 'redux-observable';
 import { delay, mapTo } from 'rxjs/operators';
 
-import { MyTypes } from '../../store/types';
 import { increment } from './actions';
+import { MyTypes } from '../../store/store-type-helper';
 
-export const asyncIncrement: Epic<
-	MyTypes.RootAction,
-	MyTypes.RootAction,
-	MyTypes.RootState
-> = action$ =>
+export const asyncIncrement: MyTypes.AppEpic = action$ =>
 	action$.pipe(
 		ofType('counter/ASYNC_INCREMENT'),
 		delay(2000),

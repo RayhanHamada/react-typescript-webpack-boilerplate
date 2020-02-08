@@ -1,6 +1,6 @@
 import { createReducer } from 'typesafe-actions';
 
-const initialState = {
+const initialState: AppFeatures.Counter = {
 	count: 0,
 };
 

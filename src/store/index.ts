@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createEpicMiddleware } from 'redux-observable';
 
-import { MyTypes } from './types';
+import { MyTypes } from './store-type-helper';
 import rootReducer from './root-reducer';
 import rootEpic from './root-epic';
 
