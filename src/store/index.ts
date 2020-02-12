@@ -26,7 +26,7 @@ const composeWith =
 
 export const configureStore = (
 	preloadedState: Partial<MyTypes.RootState> = {}
-) => createStore(createRootReducer(history), preloadedState, composeWith);
+) => createStore(createRootReducer(history), preloadedState as MyTypes.RootState, composeWith);
 
 // override the parameter if you desire a different initial state for your store
 const store = configureStore(/*override this parameter if you desire different initial state for your store */);
