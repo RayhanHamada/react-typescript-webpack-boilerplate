@@ -4,11 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development webpack-dev-server --color --progress",
-		"build": "cross-env NODE_ENV=production webpack --color --progress",
-		"serve": "serve build",
+		"dev": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --color --progress",
+		"build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --color --progress",
 		"lint:ts": "eslint src/**/*.{ts,tsx} --fix",
-		"pretty": "prettier src/**/* --config ./.prettierrc",
+		"pretty": "./node_modules/.bin/prettier src/**/*.{ts,tsx,js,jsx,css,s[ac]ss} --write",
 		"test": "jest"
 	},
 	"keywords": [],

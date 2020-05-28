@@ -21,4 +21,4 @@ export const decrementBy = createAction(
 	}
 )();
 
-export const asyncIncrement = createAction("counter/ASYNC_INCREMENT")();
+export const asyncIncrement = createAction('counter/ASYNC_INCREMENT')();
